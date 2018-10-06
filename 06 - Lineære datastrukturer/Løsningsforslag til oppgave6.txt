@@ -1,0 +1,96 @@
+/* SPLITT KODEN I TRE - KLASSENE PÅ HVER SIN FIL, 
+ * ELLER TA BORT PUBLIC PÅ DE TO SISE KLASSENE
+ */
+package sortedlist;
+
+/**
+ * @author Tor Lønnestad
+ */
+
+public class Main {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        SortedList liste = new SortedList();
+        liste.add(new Person("Ole"));
+        liste.add(new Person("Per"));
+        liste.add(new Person("Kåre"));
+        liste.add(new Person("Jens"));
+        liste.add(new Person("Petter"));
+        liste.add(new Person("Kristian"));
+        liste.add(new Person("Frode"));
+    
+        System.out.println(liste);
+    }
+}   // Slutt class Main
+
+///////////////////////////////////////////////////////////////////////
+
+package sortedlist;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+/**
+ * @author Tor Lønnestad
+ */
+
+public class SortedList {
+
+    LinkedList<Person> list;
+
+    public SortedList(){
+        list = new LinkedList<>();
+    }
+
+    public void add(Person ny){
+        Iterator<Person> itp = list.iterator();
+        int posisjon = 0;
+        while (itp.hasNext()){
+            Person gml = itp.next();
+            if (ny.compareTo(gml) < 0) { //ny skal inn FØR gml i lista?
+                list.add(posisjon, ny);
+                return;
+            }
+            posisjon++;
+        }
+        // Gjennom hele lista - legg inn bakerst:
+        list.add(ny);
+    }
+
+    @Override
+    public String toString(){
+        return list.toString();
+    }
+
+}   // Slutt class SortedList
+
+///////////////////////////////////////////////////////////////////////
+
+package sortedlist;
+
+/**
+ * @author lonnesta
+ */
+
+public class Person implements Comparable<Person>{
+
+    String navn;
+
+    public Person(String navn){
+        this.navn = navn;
+    }
+
+    @Override
+    public String toString(){
+        return navn;
+    }
+
+    @Override
+    public int compareTo(Person p){
+        return navn.compareTo(p.navn);
+        // Eller prøv: return navn.length() - p.navn.length();
+    }
+
+}   // Slutt class Person
