@@ -1,4 +1,4 @@
-package obligatorisk.oppgave;
+package ObligtoriskOppgave;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -15,9 +15,7 @@ public class App extends Application {
         
     }
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String[] args) {
         launch(args);
     }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package obligatorisk.oppgave;
+package ObligtoriskOppgave;
 
 /**
  *
  * @author Khoi Nguyen Hoang
  */
-public class Sirkel {
+public class RettLinje {
     
 }
